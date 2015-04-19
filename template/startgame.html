@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Instructions </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+	    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" />
+	 <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/custom.css" %}" />
+
+
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+    
+</head>
+
+<body>
+
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+				<div align="center">
+					<a class="navbar-brand"> <p>Cyber Security Game</p>  <h> </h>  </a> 
+			
+			</div>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav navbar-nav">
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="jumbotron">
+		<center> <h1>Instructions</h1> </center>
+		<p>Welcome! This study consists of a single task, where you will be randomly matched with an anonymous individual from a pool of online participants. Both you and the other player will have the opportunity to earn money according to the decisions you make in this task. However, there is no payment unless you fully complete the task.</p>
+			<p><b>Please read the following scenario:</b><br>
+Shoppers.com is a company that sells a number of items online including clothes, books, and electronic devices. The company has a large number of customers that perform online transactions using the company’s website that is installed on the company’s Webserver. 
+	The Hacker tries to steal information from the Webserver and damage files on the Webserver that are important to Shoppers.com. Shoppers.com has hired a security analyst in order to help the company protect its customer's data against the cyber-attacks waged by the Hacker. </p>
+<p>You will play role of <b>{{profile}}</b>. You and your opponent will make multiple decisions sequentially in multiple trials. Your payoffs in each trial will depend on what both you and your opponent do. 
+<br>The Hacker may choose between the following two actions: <b>Attack</b> or <b>Not Attack</b>. The Attack action means that the Hacker attacks Shoppers.com’s Webserver to steal information and damage files. The Not Attack action means that the Hacker does not attack Shoppers.com. <br>
+The Analyst may choose between the following two actions: <b>Defend</b> or <b>Not Defend</b>. The Defend action means that the Analyst protects Shoppers.com’s Webserver against the Hacker’s actions. The Not Defend action means that the Analyst decides not to defend Shoppers.com’s Webserver. <br>
+After the Analyst and the Hacker have taken an action, both the Hacker and Analyst receive the following feedback: the actions taken by each other and the payoffs that results from those actions. <br>
+Figure below lists the payoffs for different combinations of actions taken by the Hacker and the Analyst.</p>
+ 		<b><p><ul>
+
+
+		<li> If the Hacker takes an Attack action and the Analyst takes a Defend action, then the Hacker gets -10 points and the Analyst gets +5 points. </li>
+<br> 
+		 <li>If the Hacker takes an Attack action and the Analyst takes a Not Defend action, then the Hacker gets +5 points and the Analyst gets -5 points. </li>
+</br> 
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Defend action, then the Hacker gets 0 points and the Analyst gets -5 points.</li>
+ </br> 
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Not Defend action then, both the Hacker and Analyst get 0 points each.</li>
+</p></b><p>
+After this feedback is received the Hacker and Analyst start a new trial and take one of the two actions again.</p>
+<br>	
+	<center>	<img src="{% static "matrix.png" %}" alt="Payoff Matrix" /> <center>
+<br><br>
+	<center> <form action="/initgame/" method="POST">
+			<input type="submit" value="Start Game" style="height:50px; width:150px">
+			</form> <center>
+			
+	</div>
+	
+
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-12">
+			<footer>
+				<p>&copy; Nidhi Makhijani</p>
+			</footer>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

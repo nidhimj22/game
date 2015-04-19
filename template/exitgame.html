@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exit Game </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" />
+	 <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/custom.css" %}" />
+
+
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    
+    
+<style type="text/css">
+    body{
+    	padding-top: 70px;
+    }
+</style>
+</head>
+
+<body>
+	
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+				<div align="center">
+					<a class="navbar-brand"> <p>Cyber Security Game - Own the internet </p>  <h> </h>  </a> 
+			
+			</div>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav navbar-nav">
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="jumbotron">
+<h2><center> Done</center></h2>
+<p><center> You have completed the experiment. We will inform you about the payment as soon as possible via email. You may restart the experiment</center></p>
+<br>
+		</form>
+			<form action="/index/" method="POST">
+			<input type="submit" value="Restart the Game" style="height:50px; width:150px">
+		</form>		
+</div>
+<hr>
+	<div class="row">
+		<div class="col-xs-12">
+			<footer>
+				<p>&copy; Nidhi Makhijani</p>
+			</footer>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

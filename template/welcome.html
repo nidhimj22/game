@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title> Welcome </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/custom.css" %}" />
+
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+    
+    
+    
+    <style type="text/css">
+      body{
+      padding-top: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="container">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </button>
+	  <div align="center">
+	    <a class="navbar-brand"> <p>Cyber Security Game - Own the internet </p>  <h> </h>  </a> 
+	    
+	  </div>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+	  <ul class="nav navbar-nav">
+	  </ul>
+	</div>
+      </div>
+    </nav>
+
+
+
+    <div class="container">
+      <div class="jumbotron">
+	<h2> <center> Welcome </center> </h2>
+	<p>The study involves a live interaction between you and other randomly matched individual from a pool of individuals available online. Furthermore, anonymity will be preserved between you and your partner all along the experiment.<br>
+	  The total duration of this study is approximately 30 minutes. Please close this page if you are not able or willing to spend 30 minutes on this study.
+	  Payoffs are always displayed in points, and your goal is to obtain as many points as possible.<br>
+	  Through your participation, you can earn base payment of Rs. 10. Note that you will only be paid if both you and your partner have fully completed the study. Because you will be interacting with another individual, we ask that you pay attention to the task and refrain from interruptions during this study.<br>
+	</p>
+	<center>
+          <form action="/survey/" method="POST">
+		<input type="submit" value="Continue" style="height:50px; width:150px">
+	      </form>
+	    </center>
+	
+	
+	
+      </div>
+      <hr>
+      
+      <div class="row">
+	<div class="col-xs-12">
+	  <footer>
+	    <p>&copy; Nidhi Makhijani</p>
+	  </footer>
+	</div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
