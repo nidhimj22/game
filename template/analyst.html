@@ -64,16 +64,36 @@ Analyst Earned: <b>{{extra_a}} </b>
 Analyst Total: <b>{{score_a}} </b>
 &emsp;
  Hacker's Total: <b>{{score_h}} </b>
- <br>
- </p>
- <br>
- <b>Payoff Matrix</b>
- <br>
- <!-- <img src="{% static "matrix.png" %}" alt="Payoff Matrix" /> -->
+  <br>
+</p>
+<center> <b>Payoff Matrix </b></center><br>
+<center> <b> Hacker </b> </center>
+
+<TABLE BORDER="3"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="1">
+	<caption align="left" font-weight: "bold" color:"#000000" >  <span style="color:#000000">Analyst </span> </caption>
+    
+   <TR>
+      <TH>  </TH>
+      <TH> Attack </TH>
+      <TH>Don't Attack</TH>
+   </TR>  
+   <TR>
+	  <TH> Defend </TH> 
+      <TH>{{a1}} , {{h1}}</TH>
+      <TH>{{a2}} , {{h2}}</TH>
+   </TR>
+   <TR>
+	   <TH> Don't Defend </TH>  
+      <TH>{{a3}} , {{h3}}</TH>
+      <TH>{{a4}} , {{h4}}</TH>
+   
+   </TR>
+</TABLE>
  
- </center>
- </h2><center><b><p>
-<br>Please choose between the following actions:</b><br></center></center></p>
+
+
+ <center><b><p>
+<br>Please choose between the following actions:</b><br></center></p>
 
 <div class="container">
     <div class="row"><center>

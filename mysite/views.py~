@@ -28,16 +28,18 @@ def startgame(request):
     else:
         request.session["profile"] = "Analyst"
     request.session['trials']=p
-    request.session['h1']=attack_mat[0][0]
-    request.session['h2']=attack_mat[0][1]
-    request.session['h3']=attack_mat[1][0]
-    request.session['h4']=attack_mat[1][1]
+    request.session['a1']=attack_mat[0][0]
+    request.session['a2']=attack_mat[0][1]
+    request.session['a3']=attack_mat[1][0]
+    request.session['a4']=attack_mat[1][1]
 
-    request.session['a1']=defence_mat[0][0]
-    request.session['a2']=defence_mat[0][1]
-    request.session['a3']=defence_mat[1][0]
-    request.session['a4']=defence_mat[1][1]
+    request.session['h1']=defence_mat[0][0]
+    request.session['h2']=defence_mat[0][1]
+    request.session['h3']=defence_mat[1][0]
+    request.session['h4']=defence_mat[1][1]
 
+
+    p=lines[3]
     request.session['trialnumber']=0
     request.session["extra_h"]=0 #extra hacker score
     request.session["extra_a"]=0 #extra analyst score

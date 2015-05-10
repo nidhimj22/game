@@ -59,17 +59,44 @@ Figure below lists the payoffs for different combinations of actions taken by th
  		<b><p><ul>
 
 
-		<li> If the Hacker takes an Attack action and the Analyst takes a Defend action, then the Hacker gets -10 points and the Analyst gets +5 points. </li>
+		<li> If the Hacker takes an Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h1 }} points and the Analyst gets {{ a1 }} points. </li>
 <br> 
-		 <li>If the Hacker takes an Attack action and the Analyst takes a Not Defend action, then the Hacker gets +5 points and the Analyst gets -5 points. </li>
+		 <li>If the Hacker takes an Attack action and the Analyst takes a Not Defend action, then the Hacker gets {{ h3 }} points and the Analyst gets {{ a3 }} points. </li>
 </br> 
-		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Defend action, then the Hacker gets 0 points and the Analyst gets -5 points.</li>
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h2 }} points and the Analyst gets {{ a2 }} points.</li>
  </br> 
-		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Not Defend action then, both the Hacker and Analyst get 0 points each.</li>
-</p></b><p>
-After this feedback is received the Hacker and Analyst start a new trial and take one of the two actions again.</p>
-<br>	
-	<center>	<img src="{% static "matrix.png" %}" alt="Payoff Matrix" /> <center>
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Not Defend action then, both the Hacker and Analyst get {{ h4 }} points each.</li>
+</p></b>	
+
+
+<center> <b>Payoff Matrix </b></center><br>
+<center> <b> Hacker </b> </center>
+<center>
+<TABLE BORDER="3"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="1">
+	<caption align="left" font-weight: "bold" color:"#000000" >  <span style="color:#000000">Analyst </span> </caption>
+    
+   <TR>
+      <TH>  </TH>
+      <TH> Attack </TH>
+      <TH>Don't Attack</TH>
+   </TR>  
+   <TR>
+	  <TH> Defend </TH> 
+      <TH>{{a1}} , {{h1}}</TH>
+      <TH>{{a2}} , {{h2}}</TH>
+   </TR>
+   <TR>
+	   <TH> Don't Defend </TH>  
+      <TH>{{a3}} , {{h3}}</TH>
+      <TH>{{a4}} , {{h4}}</TH>
+   
+   </TR>
+</TABLE>
+
+</center><br>
+<p>
+After every move, feedback is received the Hacker and Analyst start a new trial and take one of the two actions again.</p>
+<br>
 <br><br>
 	<center> <form action="/initgame/" method="POST">
 			<input type="submit" value="Start Game" style="height:50px; width:150px">
