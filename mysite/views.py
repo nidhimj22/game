@@ -140,10 +140,10 @@ def defend_eval(request, action):
     else:
         request.session["choice_a"]="Defend"
 
-    request.session["extra_h"]=attack_mat[auto_mov][action]
-    request.session["extra_a"]=defence_mat[auto_mov][action]
-    request.session["score_h"]+=attack_mat[auto_mov][action]
-    request.session["score_a"]+=defence_mat[auto_mov][action]
+    request.session["extra_h"]=attack_mat[action][auto_mov]
+    request.session["extra_a"]=defence_mat[action][auto_mov]
+    request.session["score_h"]+=attack_mat[action][auto_mov]
+    request.session["score_a"]+=defence_mat[action][auto_mov]
 
     return HttpResponseRedirect("/analyst")
 
@@ -164,10 +164,10 @@ def attack_eval(request, action):
 	request.session["choice_h"]="Not Attack"
     else:
         request.session["choice_h"]="Attack"
-    request.session["extra_h"]=attack_mat[action][auto_mov]
-    request.session["extra_a"]=defence_mat[action][auto_mov]
-    request.session["score_h"]+=attack_mat[action][auto_mov]
-    request.session["score_a"]+=defence_mat[action][auto_mov]
+    request.session["extra_h"]=attack_mat[auto_mov][action]
+    request.session["extra_a"]=defence_mat[auto_mov][action]
+    request.session["score_h"]+=attack_mat[auto_mov][action]
+    request.session["score_a"]+=defence_mat[auto_mov][action]
   
     return HttpResponseRedirect("/hacker")
 
