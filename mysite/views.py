@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
+from newapp.models import Player
+from newapp.models import Feedback
 from django import template
-from prisoner import Dilemma
 import os
 import time
 import datetime
@@ -17,17 +18,29 @@ from mysite import research
 attack_mat=research.attack_mat
 defence_mat=research.defence_mat
 p=research.p
+newplayer = Player()
+newfeedback=Feedback()
 
 def playerfeedback(request):
     return render_to_response('playerfeedback.html')
 
 def startgame(request):
+#    newplayer = Player()
+    newplayer.age=request.POST.get("age", "")    
+    newplayer.email=request.POST.get("email", "")    
+    newplayer.country=request.POST.get("country", "")    
+    newplayer.occupation=request.POST.get("occupation", "")
+    newplayer.gender=request.POST.get("gender", "")
+    newplayer.education=request.POST.get("education", "")
+    newplayer.majorstudy=request.POST.get("majorfield", "")
+    newplayer.save()
+
     flag=random.randint(1,2)
     if flag is 1:
         request.session["profile"] = "Hacker"
     else:
         request.session["profile"] = "Analyst"
-    request.session['trials']=p
+    request.session['trials']=research.trials
     request.session['h1']=attack_mat[0][0]
     request.session['h2']=attack_mat[0][1]
     request.session['h3']=attack_mat[1][0]
@@ -106,7 +119,6 @@ def defender(request):
 
 def defend_eval(request, action):
     action=int(action)
-    time.sleep(2)
     temp = random.randint(1, 100)
     if temp<p:
         auto_mov=0
@@ -130,7 +142,6 @@ def defend_eval(request, action):
 
 def attack_eval(request, action):
     action=int(action)
-    time.sleep(2)
     temp = random.randint(1, 100)
     if temp<p:
         auto_mov=0
@@ -152,10 +163,7 @@ def attack_eval(request, action):
     return HttpResponseRedirect("/hacker")
 
 
-def about(request):
-    return render_to_response(
-    'about.html',
-    )
+
 
 def survey(request):
     return render_to_response('survey.html',)
@@ -167,6 +175,10 @@ def index(request):
 
 
 def exitgame(request):
-    #save game in db and then exit
+    newfeedback.player=newplayer
+    newfeedback.ownstartegy=request.POST.get("ownstrategy","")
+    newfeedback.oppstrategy=request.POST.get("oppstrategy","")
+    newfeedback.influence=request.POST.get("influence","")
+    newfeedback.save()
     return render_to_response('exitgame.html',)
 

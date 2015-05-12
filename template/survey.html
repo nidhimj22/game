@@ -14,6 +14,7 @@
 
     <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 
 <style type="text/css">
@@ -24,6 +25,22 @@
 
 </head>
 <body>
+	<script>
+		function manageEdu(){
+			var x = document.getElementById("education").value;
+			if(x == "other"){
+				var content = 'Please Mention: <input type="text" name="education" id="eduval" required="required">\n<br><br>';
+				$("#s").html(content);
+				document.getElementById('education').setAttribute("name", "edu1");
+				
+			}else{
+				document.getElementById('education').setAttribute("name", "education");
+				var content = "";
+				$("#s").html("");
+			}
+			
+		}
+	</script>
 
 <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -416,7 +433,7 @@ In which country do you reside? <br>
 <br>
 
 What is the highest level of education you have completed? <br>
-  <select name="education" required="required">
+  <select onchange = "manageEdu()" name="education" id="education" required="required">
   <option value="">Please Select</option>
   <option value="lowhighschool">Less than high school </option>
   <option value="highschool">High School/GED </option>
@@ -431,6 +448,8 @@ What is the highest level of education you have completed? <br>
 <br>
 <br>
 
+<div id = "s">
+</div>
 Current or past Major Field of study<br>
 <input type="text" name="majorfield" required="required"><br>
 <br>

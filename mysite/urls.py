@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from mysite.views import playerfeedback,gameover,welcome, about,initgame, attacker, defender,attack_eval,defend_eval, index, survey, exitgame, startgame, questions
+from mysite.views import playerfeedback,gameover,welcome,initgame, attacker, defender,attack_eval,defend_eval, index, survey, exitgame, startgame, questions
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^hacker/$', attacker),
     url(r'^analyst/$', defender),
-    url(r'^about/$',about),
+    url(r'^admin/$',include(admin.site.urls)),
     url(r'^playerfeedback/$',playerfeedback),
     url(r'^attack_eval/(\d{1,2})/$', attack_eval),
     url(r'^defend_eval/(\d{1,2})/$', defend_eval),
