@@ -21,11 +21,12 @@ p=research.p
 newplayer = Player()
 newfeedback=Feedback()
 
+
 def playerfeedback(request):
     return render_to_response('playerfeedback.html')
 
+
 def startgame(request):
-#    newplayer = Player()
     newplayer.age=request.POST.get("age", "")    
     newplayer.email=request.POST.get("email", "")    
     newplayer.country=request.POST.get("country", "")    
@@ -40,6 +41,7 @@ def startgame(request):
         request.session["profile"] = "Hacker"
     else:
         request.session["profile"] = "Analyst"
+
     request.session['trials']=research.trials
     request.session['h1']=attack_mat[0][0]
     request.session['h2']=attack_mat[0][1]
@@ -85,6 +87,7 @@ def initgame(request):
     else:
         return HttpResponseRedirect("/analyst")
 
+
 def gameover(request):
     if request.session['score_h']>request.session['score_a']:
         request.session['winner']="Hacker"
@@ -92,6 +95,7 @@ def gameover(request):
 	request.session['winner']="Analyst"
     else:
         request.session['winner']="None. Game was a tie."
+
     pageTemplate = get_template("gameover.html")
     c = template.Context(request.session)
     return HttpResponse(pageTemplate.render(c))
@@ -107,6 +111,7 @@ def attacker(request):
     else:
         return HttpResponseRedirect("/gameover")
 
+
 def defender(request):
     if request.session['trials']>0:
         pageTemplate= get_template("analyst.html")
@@ -116,6 +121,7 @@ def defender(request):
     	return HttpResponse(pageTemplate.render(c))
     else:
 	return HttpResponseRedirect("/gameover")
+
 
 def defend_eval(request, action):
     action=int(action)
@@ -133,10 +139,12 @@ def defend_eval(request, action):
 	request.session["choice_a"]="Not Defend"
     else:
         request.session["choice_a"]="Defend"
+
     request.session["extra_h"]=attack_mat[auto_mov][action]
     request.session["extra_a"]=defence_mat[auto_mov][action]
     request.session["score_h"]+=attack_mat[auto_mov][action]
     request.session["score_a"]+=defence_mat[auto_mov][action]
+
     return HttpResponseRedirect("/analyst")
 
 
@@ -156,17 +164,17 @@ def attack_eval(request, action):
 	request.session["choice_h"]="Not Attack"
     else:
         request.session["choice_h"]="Attack"
-    request.session["extra_h"]=attack_mat[auto_mov][action]
-    request.session["extra_a"]=defence_mat[auto_mov][action]
+    request.session["extra_h"]=attack_mat[action][auto_mov]
+    request.session["extra_a"]=defence_mat[action][auto_mov]
     request.session["score_h"]+=attack_mat[action][auto_mov]
     request.session["score_a"]+=defence_mat[action][auto_mov]
+  
     return HttpResponseRedirect("/hacker")
-
-
 
 
 def survey(request):
     return render_to_response('survey.html',)
+
 
 def index(request):
     for sesskey in request.session.keys():
