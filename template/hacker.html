@@ -15,6 +15,18 @@
     <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
   
+  
+    <style type="text/css">
+		TH.topt {border-top: thin solid black;}
+		TH.rightt {border-right: thin solid black;}
+		TH.leftt {border-left: thin solid black;}
+		TH.bottomt {border-bottom: solid black thin;}
+		TH.top {border-top: solid black;}
+		TH.right {border-right: solid black;}
+		TH.left {border-left: solid black;}
+		TH.bottom {border-bottom: solid black;}
+    </style>
+    
 </head>
 
 <body>
@@ -52,12 +64,14 @@
 	</div>
 </div>
 <script>
-	var content="";
+var content="";
+content += "";
 content += "	<center><h2>";
 content += "Trial: {{ trialnumber }} <br> ";
 content += "		You are the {{ profile }}.<br>";
 content += "<\/h2><p>";
 content += "<b>Feedback:<\/b><br>";
+content += "";
 content += "Analyst Choice: <b>{{choice_a}} <\/b>";
 content += " &emsp;";
 content += " Hacker's Choice: <b>{{ choice_h }} <\/b>";
@@ -66,38 +80,43 @@ content += "Analyst Earned: <b>{{extra_a}} <\/b>";
 content += " &emsp;";
 content += " Hacker Earned: <b>{{ extra_h }} <\/b>";
 content += " <br>";
-content += "Analyst Score: <b>{{score_a}} <\/b>";
+content += "Analyst Total: <b>{{score_a}} <\/b>";
 content += "&emsp;";
-content += " Hacker's Score: <b>{{score_h}} <\/b>";
-content += " <br>";
+content += " Hacker's Total: <b>{{score_h}} <\/b>";
+content += "  <br>";
 content += "<\/p>";
-content += "<center> <b>Payoff Matrix <\/b><\/center><br>";
-content += "<center> <b> Hacker <\/b> <\/center>";
-content += "";
-content += "<TABLE BORDER=\"3\"    WIDTH=\"50%\"   CELLPADDING=\"4\" CELLSPACING=\"1\">";
-content += "	<caption align=\"left\" font-weight: \"bold\" color:\"#000000\" >  <span style=\"color:#000000\">Analyst<\/span> <\/caption>";
-content += "    ";
-content += "   <TR>";
-content += "      <TH>  <\/TH>";
-content += "      <TH> Attack <\/TH>";
-content += "      <TH>Don't Attack<\/TH>";
+
+content += "<center> <b>Payoff Matrix <\/b><br><br>";
+content += " <div class = \"row\">";
+content += "<TABLE WIDTH=\"500px\"   CELLPADDING=\"4\" CELLSPACING=\"1\">";
+content += "	<TR>";
+content += "		<TH><\/TH>";
+content += "		<TH><\/TH>";
+content += "		<TH><B>Hacker<\/B><\/TH>";
+content += "		<TH><\/TH>";
+content += "	<\/TR>";
+content += "	<TR>";
+content += "		<TH><\/TH> ";
+content += "      <TH class=\"rightt bottomt top left\"><\/TH>  ";
+content += "      <TH class=\"rightt bottomt top leftt\"> Attack <\/TH>";
+content += "      <TH class=\"right bottomt top leftt\">Don't Attack<\/TH>";
 content += "   <\/TR>  ";
 content += "   <TR>";
-content += "	  <TH> Defend <\/TH> ";
-content += "      <TH>{{a1}} , {{h1}}<\/TH>";
-content += "      <TH>{{a2}} , {{h2}}<\/TH>";
+content += "	   <TH><B>Analyst<\/B><\/TH>";
+content += "	  <TH class=\"rightt bottomt topt left\"> Defend <\/TH> ";
+content += "      <TH class=\"rightt bottomt topt leftt\">{{a1}} , {{h1}}<\/TH>";
+content += "      <TH class=\"right bottomt topt leftt\">{{a2}} , {{h2}}<\/TH>";
 content += "   <\/TR>";
 content += "   <TR>";
-content += "	   <TH> Don't Defend <\/TH>  ";
-content += "      <TH>{{a3}} , {{h3}}<\/TH>";
-content += "      <TH>{{a4}} , {{h4}}<\/TH>";
-content += "   ";
-content += "   <\/TR>";
+content += "	   <TH><\/TH>";
+content += "	   <TH class=\"rightt bottom topt left\"> Don't Defend <\/TH>  ";
+content += "      <TH class=\"rightt bottom topt leftt\">{{a3}} , {{h3}}<\/TH>";
+content += "      <TH class=\"right bottom topt leftt\" >{{a4}} , {{h4}}<\/TH>";
+content += "   <\/TR>   ";
 content += "<\/TABLE>";
-content += " ";
-content += "";
-content += " <center><b><p>";
-content += "<br>Please choose between the following actions:<\/b><br><\/center><\/p>";
+content += "<\/div>";
+content += "<\/center><br>";
+content += "<br><b>Please choose between the following actions:<\/b><br><\/center><\/p>";
 content += "";
 content += "<div class=\"container\">";
 content += "    <div class=\"row\"><center>";
