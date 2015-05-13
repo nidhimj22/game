@@ -15,9 +15,10 @@
 
     <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
   </head>
+  
 <body>
 <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -45,7 +46,10 @@
  <div class="container">
 	<div class="jumbotron">
 			<div id = "content">
-				Please Wait . Opponent player is playing his move.
+		<center> Opponent player is playing his move. <br>
+			
+			<img src="{% static "waiting.gif" %}"/>
+		</center>
 			</div>
 			
 	</div>

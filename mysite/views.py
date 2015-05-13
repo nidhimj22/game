@@ -18,8 +18,6 @@ from mysite import research
 attack_mat=research.attack_mat
 defence_mat=research.defence_mat
 p=research.p
-newplayer = Player()
-newfeedback=Feedback()
 
 
 def playerfeedback(request):
@@ -27,6 +25,8 @@ def playerfeedback(request):
 
 
 def startgame(request):
+    global newplayer
+    newplayer = Player()
     newplayer.age=request.POST.get("age", "")    
     newplayer.email=request.POST.get("email", "")    
     newplayer.country=request.POST.get("country", "")    
@@ -183,10 +183,11 @@ def index(request):
 
 
 def exitgame(request):
+    newfeedback = Feedback()
     newfeedback.player=newplayer
-    newfeedback.ownstartegy=request.POST.get("ownstrategy","")
+    newfeedback.ownstrategy=request.POST.get("ownstrategy",)
     newfeedback.oppstrategy=request.POST.get("oppstrategy","")
-    newfeedback.influence=request.POST.get("influence","")
+    newfeedback.influence=request.POST.get("influence")
     newfeedback.save()
     return render_to_response('exitgame.html',)
 

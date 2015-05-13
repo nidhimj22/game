@@ -55,7 +55,7 @@
 	<div class="jumbotron">
 	<h2>Survey</h2><br>
 <center>
-<p> Before you can get Rs. 30, we would like you to fill out the following questionnaire as honestly as possible </p></center>
+<p> Before you can get Rs. 30, we would like you to fill out the following questionnaire as hosnestly as possible </p></center>
 
 <form action="/exitgame/" method="POST" id="feedback">
 

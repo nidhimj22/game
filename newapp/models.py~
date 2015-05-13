@@ -27,8 +27,8 @@ class Game(models.Model):
 """
 class Feedback(models.Model):
 	player=models.ForeignKey(Player,null=True,blank=True)	
-	ownstrategy=models.CharField(max_length=100)
-	oppstrategy=models.CharField(max_length=100)
+	ownstrategy=models.CharField(max_length=1000,null=True)
+	oppstrategy=models.CharField(max_length=1000)
 	influence=models.CharField(max_length=100)
 	
  
