@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -25,7 +25,7 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 TEMPLATE_DIRS = (
-    '/home/nidhi/mysite/template',
+     BASE_DIR +  "/template/",
 )
 
 ALLOWED_HOSTS = []
@@ -88,7 +88,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),'/home/nidhi/mysite/static/')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 
 import django.contrib.auth
 django.contrib.auth.LOGIN_URL = '/'
