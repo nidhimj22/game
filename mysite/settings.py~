@@ -93,6 +93,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+"""
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/home/nidhi/mysite/static/',
+)
+"""
 
 import django.contrib.auth
 django.contrib.auth.LOGIN_URL = '/'

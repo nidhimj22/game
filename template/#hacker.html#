@@ -122,14 +122,18 @@ Analyst Score: <b>{{score_a}} </b>
 <script>
   function notattack(){
   $("#content").html(
-  "<center> Opponent Player is Opponent player is playing his move. <br> </center> "
+  "<center> Opponent Player is Opponent player is playing his move. <br> \
+			<img src=\"{% static \"waiting.gif\" %}\"/> \
+	 </center> "
 ); 
   setInterval(function() {
       window.location.href = "/attack_eval/1/";
   }, 3000);
   }
   function attack(){
-  $("#content").html("<center> Opponent Player is Opponent player is playing his move. <br> </center> ");
+  $("#content").html("<center> Opponent Player is Opponent player is playing his move. <br>  \
+			<img src=\"{% static "waiting.gif" %}"/>
+	 </center> ");
   setInterval(function() {
       window.location.href = "/attack_eval/0/";
   }, 3000);
