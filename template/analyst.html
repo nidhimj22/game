@@ -75,32 +75,40 @@ Analyst Score: <b>{{score_a}} </b>
  Hacker's Score: <b>{{score_h}} </b>
  <br>
 </p>
-<center> <b>Payoff Matrix </b></center><br>
-<center> <b> Hacker </b> </center>
-
-<TABLE BORDER="3"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="1">
-  <caption align="left" font-weight: "bold" color:"#000000" >  <span style="color:#000000">Analyst</span> </caption>
-    
-   <TR>
-      <TH>  </TH>
-      <TH> Attack </TH>
-      <TH>Don't Attack</TH>
+ <center> <b>Payoff Matrix </b><br><br>
+ <div class = "row">
+<TABLE WIDTH="500px"   CELLPADDING="4" CELLSPACING="1">
+	 
+	<TR>
+		<TH></TH>
+		<TH></TH>
+		<TH><B>Hacker</B></TH>
+		<TH></TH>
+	</TR>
+	<TR>
+		<TH></TH> 
+      <TH class="rightt bottomt top left"></TH>  
+      <TH class="rightt bottomt top leftt"> Attack </TH>
+      <TH class="right bottomt top leftt">Don't Attack</TH>
    </TR>  
    <TR>
-       <TH> Defend </TH> 
-      <TH>{{a1}} , {{h1}}</TH>
-      <TH>{{a2}} , {{h2}}</TH>
+	   <TH><B>Analyst</B></TH>
+	  <TH class="rightt bottomt topt left"> Defend </TH> 
+      <TH class="rightt bottomt topt leftt">{{a1}} , {{h1}}</TH>
+      <TH class="right bottomt topt leftt">{{a2}} , {{h2}}</TH>
    </TR>
    <TR>
-        <TH> Don't Defend </TH>  
-      <TH>{{a3}} , {{h3}}</TH>
-      <TH>{{a4}} , {{h4}}</TH>
-   
-   </TR>
+	   <TH></TH>
+	   <TH class="rightt bottom topt left"> Don't Defend </TH>  
+      <TH class="rightt bottom topt leftt">{{a3}} , {{h3}}</TH>
+      <TH class="right bottom topt leftt" >{{a4}} , {{h4}}</TH>
+   </TR>   
 </TABLE>
- 
+</div>
+</center><br>
 
- <center><b><p>
+
+<p>
 <br>Please choose between the following actions:</b><br></center></p>
 
 <div class="container">
@@ -121,21 +129,24 @@ Analyst Score: <b>{{score_a}} </b>
 	</div>
 </div>
 <script>
+	
+wait =  "<center>\
+ Opponent player is playing his move.<br>\
+ <img src = \"{% static "waiting.gif" %}\" </center>"
+ 
+ 
   function notdefend(){
-  $("#content").html(
-  "<center> Opponent Player is Opponent player is playing his move. <br> </center> "
-); 
+  $("#content").html(wait); 
   setInterval(function() {
       window.location.href = "/defend_eval/1/";
   }, 3000);
   }
   function defend(){
-  $("#content").html("<center> Opponent player is playing his move. <br> </center> ");
+  $("#content").html(wait);
   setInterval(function() {
       window.location.href = "/defend_eval/0/";
   }, 3000);
   }
-
 </script>
 
 <hr>

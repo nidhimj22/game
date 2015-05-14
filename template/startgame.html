@@ -61,26 +61,16 @@
 Shoppers.com is a company that sells a number of items online including clothes, books, and electronic devices. The company has a large number of customers that perform online transactions using the company’s website that is installed on the company’s Webserver. 
 	The Hacker tries to steal information from the Webserver and damage files on the Webserver that are important to Shoppers.com. Shoppers.com has hired a security analyst in order to help the company protect its customer's data against the cyber-attacks waged by the Hacker. </p>
 <p>You will play role of <b>{{profile}}</b>. You and your opponent will make multiple decisions sequentially in multiple trials. Your payoffs in each trial will depend on what both you and your opponent do. 
-<br>The Hacker may choose between the following two actions: <b>Attack</b> or <b>Not Attack</b>. The Attack action means that the Hacker attacks Shoppers.com’s Webserver to steal information and damage files. The Not Attack action means that the Hacker does not attack Shoppers.com. <br>
-The Analyst may choose between the following two actions: <b>Defend</b> or <b>Not Defend</b>. The Defend action means that the Analyst protects Shoppers.com’s Webserver against the Hacker’s actions. The Not Defend action means that the Analyst decides not to defend Shoppers.com’s Webserver. <br>
-After the Analyst and the Hacker have taken an action, both the Hacker and Analyst receive the following feedback: the actions taken by each other and the payoffs that results from those actions. <br>
+<br>The Hacker may choose between the following two actions: <b>Attack</b> or <b>Not Attack</b>. The Attack action means that the Hacker attacks Shoppers.com’s Webserver to steal information and damage files. The Not Attack action means that the Hacker does not attack Shoppers.com. <br><br>
+The Analyst may choose between the following two actions: <b>Defend</b> or <b>Not Defend</b>. The Defend action means that the Analyst protects Shoppers.com’s Webserver against the Hacker’s actions. The Not Defend action means that the Analyst decides not to defend Shoppers.com’s Webserver.<br> <br>
+After the Analyst and the Hacker have taken an action, both the Hacker and Analyst receive the following feedback: the actions taken by each other and the payoffs that results from those actions. After every move, feedback is received, the Hacker and the Analyst start a new trial and take one of the two actions again.<br>
 Figure below lists the payoffs for different combinations of actions taken by the Hacker and the Analyst.</p>
- 		<b><p><ul>
-
-
-		<li> If the Hacker takes an Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h1 }} points and the Analyst gets {{ a1 }} points. </li>
-<br> 
-		 <li>If the Hacker takes an Attack action and the Analyst takes a Not Defend action, then the Hacker gets {{ h3 }} points and the Analyst gets {{ a3 }} points. </li>
-</br> 
-		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h2 }} points and the Analyst gets {{ a2 }} points.</li>
- </br> 
-		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Not Defend action then, both the Hacker and Analyst get {{ h4 }} points each.</li>
-</p></b>	
-
+ 	
 
 <center> <b>Payoff Matrix </b><br><br>
  <div class = "row">
 <TABLE WIDTH="500px"   CELLPADDING="4" CELLSPACING="1">
+	 
 	<TR>
 		<TH></TH>
 		<TH></TH>
@@ -109,10 +99,23 @@ Figure below lists the payoffs for different combinations of actions taken by th
 </div>
 </center><br>
 
+	<b><p><ul>
+
+
+		<li> If the Hacker takes an Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h1 }} points and the Analyst gets {{ a1 }} points. </li>
+<br> 
+		 <li>If the Hacker takes an Attack action and the Analyst takes a Not Defend action, then the Hacker gets {{ h3 }} points and the Analyst gets {{ a3 }} points. </li>
+</br> 
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Defend action, then the Hacker gets {{ h2 }} points and the Analyst gets {{ a2 }} points.</li>
+ </br> 
+		 <li>If the Hacker takes a Not Attack action and the Analyst takes a Not Defend action then, both the Hacker and Analyst get {{ h4 }} points each.</li>
+</p></b>	
+
 
 
 <p><br>
-After every move, feedback is received, the Hacker and the Analyst start a new trial and take one of the two actions again.</p>
+Both the hacker and the analyst will be paid Rs. 10 each. At the end of the game, the total number of points of the hacker and the analyst is converted into real money in the ratio of {{ multiplier }} points in the game equal to Rs. 1 of real money. 
+</p>
 <br>
 <br><br>
 	<center> <form action="/initgame/" method="POST">
