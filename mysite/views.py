@@ -16,10 +16,13 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from mysite import research
 
-attack_mat=research.attack_mat
-defence_mat=research.defence_mat
-p=research.p
-
+trials = research.trials1
+attack_mat = research.attack_mat1
+defence_mat = research.defence_mat1
+p = research.p1
+q = research.q1
+multiplier = research.multiplier1 
+base = research.base1
 
 def playerfeedback(request):
     return render_to_response('playerfeedback.html')
@@ -45,7 +48,33 @@ def startgame(request):
     else:
         request.session["profile"] = "Analyst"
 
-    request.session['trials']=research.trials
+    global gamematrix
+    gamematrix = random.randint(1,3)
+    if gamematrix is 2:
+        trials = research.trials1
+        attack_mat=research.attack_mat2
+        defence_mat=research.defence_mat2
+        p= research.p2
+        q = research.q2
+        multiplier = research.multiplier2
+	base = research.base2
+
+    elif gamematrix is 3:
+        trials = research.trials3
+        attack_mat=research.attack_mat3
+        defence_mat=research.defence_mat3
+        p= research.p3
+        q = research.q3
+        multiplier = research.multiplier3
+	base = research.base3
+     
+    else:
+        #do nothing
+        print 'hello' 
+
+
+    request.session['trials']=trials
+    request.session['multiplier'] = multiplier
     request.session['h1']=attack_mat[0][0]
     request.session['h2']=attack_mat[0][1]
     request.session['h3']=attack_mat[1][0]
@@ -59,8 +88,8 @@ def startgame(request):
     request.session['trialnumber']=0
     request.session["extra_h"]=0 #extra hacker score
     request.session["extra_a"]=0 #extra analyst score
-    request.session["score_h"]=1000 #hacker score
-    request.session["score_a"]=1000 #analyst score
+    request.session["score_h"]=base #hacker score
+    request.session["score_a"]=base #analyst score
     request.session["choice_h"]="None" #prev_move of hacker
     request.session["choice_a"]="None" #prev move of analsyt
 
@@ -99,9 +128,10 @@ def gameover(request):
     else:
         request.session['winner']="None. Game was a tie."
 
+  
     newgame = Game()
     newgame.player=newplayer
-    newgame.gametype=1
+    newgame.gametype=gamematrix
     newgame.hackermoves=request.session['hackermoves']
     newgame.analystmoves=request.session['analystmoves']
     newgame.winner=request.session["winner"]
