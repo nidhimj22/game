@@ -143,6 +143,7 @@ def gameover(request):
 
     request.session['hackermoney']=hackermoney
     request.session['analystmoney']=analystmoney
+
  
     newgame = Game()
     newgame.player=newplayer
