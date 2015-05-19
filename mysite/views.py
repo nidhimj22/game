@@ -164,8 +164,6 @@ def attacker(request):
     if request.session['trials']>0:
         pageTemplate= get_template("hacker.html")
         c = template.Context(request.session)
-        request.session['trials']=int(request.session['trials'])-1
-        request.session['trialnumber']=int(request.session['trialnumber'])+1
         return HttpResponse(pageTemplate.render(c))
     else:
         return HttpResponseRedirect("/gameover")
@@ -175,8 +173,6 @@ def defender(request):
     if request.session['trials']>0:
         pageTemplate= get_template("analyst.html")
     	c = template.Context(request.session)
-        request.session['trials']=int(request.session['trials'])-1
-        request.session['trialnumber']=int(request.session['trialnumber'])+1
     	return HttpResponse(pageTemplate.render(c))
     else:
 	return HttpResponseRedirect("/gameover")
@@ -184,8 +180,8 @@ def defender(request):
 
 def defend_eval(request, action):
     action=int(action)
-    temp = random.randint(1, 100)
-    if temp<p:
+    temp = round(random.uniform(min_time, max_time), 2)
+    if temp<=p:
         auto_mov=0
     else:
         auto_mov=1
@@ -199,6 +195,8 @@ def defend_eval(request, action):
     else:
         request.session["choice_a"]="Defend"
 
+    request.session['trials']=int(request.session['trials'])-1
+    request.session['trialnumber']=int(request.session['trialnumber'])+1
     
     request.session["extra_h"]=attack_mat[action][auto_mov]
     request.session["extra_a"]=defence_mat[action][auto_mov]
@@ -220,8 +218,8 @@ def defend_eval(request, action):
 
 def attack_eval(request, action):
     action=int(action)
-    temp = random.randint(1, 100)
-    if temp<p:
+    temp = round(random.uniform(min_time, max_time), 2)
+    if temp<=q:
         auto_mov=0
     else:
         auto_mov=1
@@ -235,6 +233,9 @@ def attack_eval(request, action):
     else:
         request.session["choice_h"]="Attack"
 
+    
+    request.session['trials']=int(request.session['trials'])-1
+    request.session['trialnumber']=int(request.session['trialnumber'])+1
     
     request.session["extra_h"]=attack_mat[auto_mov][action]
     request.session["extra_a"]=defence_mat[auto_mov][action]
