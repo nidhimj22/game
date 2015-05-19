@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'npvm&zh_)c9l_xz5k8w%^_zodq!^=*i%1bp5r@s%%5)k)c4%f9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 TEMPLATE_DIRS = (
      BASE_DIR +  "/template/",
@@ -64,7 +64,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysite',
         'USER': 'root',
-        'PASSWORD' :'root',
+        'PASSWORD' :'mineral',
         'HOST' : 'localhost',
 	'PORT':'3306',
     }

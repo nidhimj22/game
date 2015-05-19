@@ -66,11 +66,7 @@ def startgame(request):
         p= research.p3
         q = research.q3
         multiplier = research.multiplier3
-	base = research.base3
-     
-    else:
-        #do nothing
-        print 'hello' 
+	base = research.base3 
 
 
     request.session['trials']=trials
@@ -85,7 +81,7 @@ def startgame(request):
     request.session['a3']=defence_mat[1][0]
     request.session['a4']=defence_mat[1][1]
 
-    request.session['trialnumber']=0
+    request.session['trialnumber']=1
     request.session["extra_h"]=0 #extra hacker score
     request.session["extra_a"]=0 #extra analyst score
     request.session["score_h"]=base #hacker score
@@ -131,19 +127,18 @@ def gameover(request):
  
     hackermoney = round((request.session['score_h']-base)/multiplier)
     analystmoney = round((request.session['score_a']-base)/multiplier)
-    if hackermoney < 0:
+    if hackermoney <= 0:
     	hackermoney = 10
     else:
 	hackermoney+=10
 
-    if analystmoney < 0:
+    if analystmoney <= 0:
     	analystmoney = 10
     else:
 	analystmoney+=10
 
     request.session['hackermoney']=hackermoney
     request.session['analystmoney']=analystmoney
-
  
     newgame = Game()
     newgame.player=newplayer
@@ -165,10 +160,11 @@ def attacker(request):
     if request.session['trials']>0:
         pageTemplate= get_template("hacker.html")
         c = template.Context(request.session)
-        request.session['trials']=int(request.session['trials'])-1
-        request.session['trialnumber']=int(request.session['trialnumber'])+1
+      #  request.session['trials']=int(request.session['trials'])-1
+       # request.session['trialnumber']=int(request.session['trialnumber'])+1
         return HttpResponse(pageTemplate.render(c))
     else:
+        request.session['trialnumber']=request.session['trialnumber']-1
         return HttpResponseRedirect("/gameover")
 
 
@@ -176,17 +172,22 @@ def defender(request):
     if request.session['trials']>0:
         pageTemplate= get_template("analyst.html")
     	c = template.Context(request.session)
-        request.session['trials']=int(request.session['trials'])-1
-        request.session['trialnumber']=int(request.session['trialnumber'])+1
+    #    request.session['trials']=int(request.session['trials'])-1
+     #   request.session['trialnumber']=int(request.session['trialnumber'])+1
     	return HttpResponse(pageTemplate.render(c))
     else:
+        request.session['trialnumber']=request.session['trialnumber']-1
 	return HttpResponseRedirect("/gameover")
 
 
 def defend_eval(request, action):
+    request.session['trials']=int(request.session['trials'])-1
+    request.session['trialnumber']=int(request.session['trialnumber'])+1
+
     action=int(action)
-    temp = random.randint(1, 100)
-    if temp<p:
+    temp = round(random.random()*100,2) 
+    print temp
+    if temp<=p:
         auto_mov=0
     else:
         auto_mov=1
@@ -200,7 +201,6 @@ def defend_eval(request, action):
     else:
         request.session["choice_a"]="Defend"
 
-    
     request.session["extra_h"]=attack_mat[action][auto_mov]
     request.session["extra_a"]=defence_mat[action][auto_mov]
     request.session["score_h"]+=attack_mat[action][auto_mov]
@@ -220,9 +220,13 @@ def defend_eval(request, action):
 
 
 def attack_eval(request, action):
+    request.session['trials']=int(request.session['trials'])-1
+    request.session['trialnumber']=int(request.session['trialnumber'])+1
+
     action=int(action)
-    temp = random.randint(1, 100)
-    if temp<p:
+    temp = round(100*random.random(),2)
+    print temp
+    if temp<=q:
         auto_mov=0
     else:
         auto_mov=1
