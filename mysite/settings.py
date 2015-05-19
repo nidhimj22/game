@@ -28,7 +28,7 @@ TEMPLATE_DIRS = (
      BASE_DIR +  "/template/",
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
