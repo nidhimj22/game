@@ -7,10 +7,10 @@ q1 = 33.00
 multiplier1 = 75
 base1 = 500
 
-# rewarding hacker 
+# rewardin hacker 
 trials2 = 50
 attack_mat2 = [[-10, 50], [0, 0]]
-defence_mat2 = [[5, -5], [0, 0]]
+defence_mat2 = [[5, -5], [-5, 0]]
 p2 = 33.00
 q2 = 8.33
 multiplier2 = 300

@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+1;3409;0cfrom django.http import HttpResponse
 from django.template.loader import get_template
 from newapp.models import Player
 from newapp.models import Feedback
@@ -62,7 +62,7 @@ def startgame(request):
    
     gamematrix = random.randint(1,3)
     if gamematrix is 2:
-        trials = research.trials2
+        trials = research.trials1
         attack_mat=research.attack_mat2
         defence_mat=research.defence_mat2
         p= research.p2
