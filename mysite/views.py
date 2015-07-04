@@ -38,14 +38,14 @@ def startgame(request):
    
     request.session['hackermoves']=[]
     request.session['analystmoves']=[]
-    flag=random.randint(1,2)
-    if flag is 1:
-        request.session["profile"] = "Hacker"
-    else:
-        request.session["profile"] = "Analyst"
+   # flag=random.randint(1,2)
+   # if flag is 1:
+    request.session["profile"] = "Hacker"
+   # else:
+    #    request.session["profile"] = "Analyst"
 
    
-    request.session['gamematrix'] = random.randint(1,3)
+    request.session['gamematrix'] = 1  #random.randint(1,3)
     if request.session['gamematrix'] is 2:
         request.session['trials'] = research.trials2
         attack_mat=research.attack_mat2
