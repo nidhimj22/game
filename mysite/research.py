@@ -1,6 +1,6 @@
 # equla payoffs 
 trials1 = 50
-attack_mat1 = [[-10, 5], [0, 0]]
+attack_mat1 = [[-10, 0], [5, 0]]
 defence_mat1 = [[5, -5], [-5, 0]]
 p1 = 33.00
 q1 = 33.00

@@ -89,7 +89,7 @@ Analyst Score: <b>{{score_a}} </b>
 		<TH></TH> 
       <TH class="rightt bottomt top left"></TH>  
       <TH class="rightt bottomt top leftt"> Attack </TH>
-      <TH class="right bottomt top leftt">Don't Attack</TH>
+      <TH class="right bottomt top leftt">Not Attack</TH>
    </TR>  
    <TR>
 	   <TH><B>Analyst</B></TH>
@@ -99,7 +99,7 @@ Analyst Score: <b>{{score_a}} </b>
    </TR>
    <TR>
 	   <TH></TH>
-	   <TH class="rightt bottom topt left"> Don't Defend </TH>  
+	   <TH class="rightt bottom topt left"> Not Defend </TH>  
       <TH class="rightt bottom topt leftt">{{a3}} , {{h3}}</TH>
       <TH class="right bottom topt leftt" >{{a4}} , {{h4}}</TH>
    </TR>   
@@ -115,11 +115,11 @@ Analyst Score: <b>{{score_a}} </b>
     <div class="row"><center>
         <div class="col-xs-6">
 	  
-       <button class="btn btn-default" style = "height:50px; width:150px" type="button" onclick="defend()">Defence</button>
+       <button class="btn btn-default" style = "height:50px; width:150px" type="button" onclick="defend()">Defend</button>
 	   
 	  </div>
      <div class="col-xs-6">
-       <button class="btn btn-default" style = "height:50px; width:150px" type="button" onclick="notdefend()">No Defence</button>
+       <button class="btn btn-default" style = "height:50px; width:150px" type="button" onclick="notdefend()">Not Defend</button>
 	 </form>
       </div>
     </div></center>
@@ -139,13 +139,13 @@ wait =  "<center>\
   $("#content").html(wait); 
   setInterval(function() {
       window.location.href = "/defend_eval/1/";
-  }, 1000);
+  }, 4000);
   }
   function defend(){
   $("#content").html(wait);
   setInterval(function() {
       window.location.href = "/defend_eval/0/";
-  }, 1000);
+  }, 4000);
   }
 </script>
 

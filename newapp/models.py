@@ -4,7 +4,7 @@ from django.db import models
 
 class Player(models.Model):
 	age= models.IntegerField()
-	email= models.EmailField()
+	email= models.CharField(max_length=300)
 	country=models.CharField(max_length=60)
 	gender = models.CharField(max_length=20)
 	education=models.CharField(max_length=50)
