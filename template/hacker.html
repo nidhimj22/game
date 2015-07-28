@@ -89,7 +89,7 @@ Analyst Score: <b>{{score_a}} </b>
 		<TH></TH> 
       <TH class="rightt bottomt top left"></TH>  
       <TH class="rightt bottomt top leftt"> Attack </TH>
-      <TH class="right bottomt top leftt">Don't Attack</TH>
+      <TH class="right bottomt top leftt">Not Attack</TH>
    </TR>  
    <TR>
 	   <TH><B>Analyst</B></TH>
@@ -99,7 +99,7 @@ Analyst Score: <b>{{score_a}} </b>
    </TR>
    <TR>
 	   <TH></TH>
-	   <TH class="rightt bottom topt left"> Don't Defend </TH>  
+	   <TH class="rightt bottom topt left"> Not Defend </TH>  
       <TH class="rightt bottom topt leftt">{{a3}} , {{h3}}</TH>
       <TH class="right bottom topt leftt" >{{a4}} , {{h4}}</TH>
    </TR>   
@@ -135,13 +135,13 @@ wait =  "<center>\
   $("#content").html(wait); 
   setInterval(function() {
       window.location.href = "/attack_eval/1/";
-  }, 1000);
+  }, 4000);
   }
   function attack(){
   $("#content").html(wait);
   setInterval(function() {
       window.location.href = "/attack_eval/0/";
-  }, 1000);
+  }, 4000);
   }
 
 
