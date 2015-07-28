@@ -16,15 +16,11 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from mysite import research
 
-newplayer = Player() 
-
 def playerfeedback(request):
     return render_to_response('playerfeedback.html')
 
 
 def startgame(request):
-    global newplayer
-
     newplayer = Player()
     newplayer.age=request.POST.get("age", "")    
     newplayer.email=request.POST.get("email", "")    
@@ -34,7 +30,7 @@ def startgame(request):
     newplayer.education=request.POST.get("education", "")
     newplayer.majorstudy=request.POST.get("majorfield", "")
     newplayer.save()
-
+    request.session['playerid']=newplayer.id
    
     request.session['hackermoves']=[]
     request.session['analystmoves']=[]
@@ -125,7 +121,7 @@ def gameover(request):
         request.session['winner']="None. Game was a tie."
 
     newgame = Game()
-    newgame.player=newplayer
+    newgame.player=Player.objects.get(id=request.session['playerid'])
     newgame.gametype=request.session['gamematrix']
     newgame.hackermoves=request.session['hackermoves']
     newgame.analystmoves=request.session['analystmoves']
@@ -289,7 +285,7 @@ def index(request):
 
 def exitgame(request):
     newfeedback = Feedback()
-    newfeedback.player=newplayer
+    newfeedback.player=Player.objects.get(id=request.session['playerid'])
     newfeedback.ownstrategy=request.POST.get("ownstrategy",)
     newfeedback.oppstrategy=request.POST.get("oppstrategy","")
     newfeedback.influence=request.POST.get("influence")
