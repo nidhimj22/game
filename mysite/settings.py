@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prolific',
+        'NAME': 'prolific3',
         'USER': 'root',
         'PASSWORD' :'mineral',
         'HOST' : 'localhost',
