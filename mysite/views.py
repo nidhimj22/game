@@ -52,12 +52,12 @@ def startgame(request):
         request.session['q'] = research.q2
      
     elif request.session['gamematrix'] is 3:
-        request.session['trials'] = research.trials2
-        attack_mat=research.attack_mat2
+        request.session['trials'] = research.trials3
+        attack_mat=research.attack_mat3
         request.session['base']=research.base3
-        defence_mat=research.defence_mat2
-        request.session['p']= research.p2
-        request.session['q'] = research.q2
+        defence_mat=research.defence_mat3
+        request.session['p']= research.p3
+        request.session['q'] = research.q3
      
     else:
         request.session['trials'] = research.trials1
