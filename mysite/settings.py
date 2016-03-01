@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prolific3',
+        'NAME': 'newdata1',
         'USER': 'root',
         'PASSWORD' :'mineral',
         'HOST' : 'localhost',

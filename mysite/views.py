@@ -41,7 +41,7 @@ def startgame(request):
     #    request.session["profile"] = "Analyst"
 
    
-    request.session['gamematrix'] = 3  #random.randint(1,3)
+    request.session['gamematrix'] = 1  #random.randint(1,3)
 
     if request.session['gamematrix'] is 2:
         request.session['trials'] = research.trials2
