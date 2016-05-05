@@ -38,7 +38,7 @@ def startgame(request):
    # if flag is 1:
     request.session["profile"] = "Hacker"
    # else:
-    #    request.session["profile"] = "Analyst"
+    #request.session["profile"] = "Analyst"
 
    
     request.session['gamematrix'] = 1  #random.randint(1,3)
